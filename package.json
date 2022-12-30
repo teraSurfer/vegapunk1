@@ -1,0 +1,26 @@
+{
+  "name": "vegapunk1",
+  "version": "1.0.0",
+  "description": "discord bot",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "deploy:commands": "node deployCommand.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/teraSurfer/vegapunk1.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/teraSurfer/vegapunk1/issues"
+  },
+  "homepage": "https://github.com/teraSurfer/vegapunk1#readme",
+  "dependencies": {
+    "body-parser": "^1.20.1",
+    "discord.js": "^14.7.1",
+    "express": "^4.18.2"
+  }
+}
