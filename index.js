@@ -1,4 +1,4 @@
-const { Client, GatewayIntentBits, Collection, Events } = require('discord.js');
+const { Client, GatewayIntentBits, Collection, Events, REST, Routes } = require('discord.js');
 const fs = require('node:fs');
 const path = require('node:path');
 const express = require('express');
@@ -14,7 +14,6 @@ const client = new Client({
     GatewayIntentBits.GuildMessages,
     GatewayIntentBits.MessageContent,
     GatewayIntentBits.GuildMembers,
-
   ]
 });
 
@@ -54,11 +53,18 @@ client.on(Events.InteractionCreate, async interaction => {
 
 client.login(process.env['TOKEN']);
 
+const rest = new REST({ version: '10' }).setToken(process.env['TOKEN']);
+
 app.get('/', async (req, res, next) => {
   res.status(200).json({ message: 'OK' });
 });
 
 app.get('/twitch', async (req, res, next) => {
+  console.log(req.body);
+  const body = {
+    content: 'Streamer is online!',
+  }
+  await rest.post(Routes.channelMessages('1055389738594471988'), { body });
   res.status(200).json({ message: 'OK' });
 });
 
