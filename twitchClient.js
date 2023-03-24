@@ -1,5 +1,4 @@
 const axios = require('axios');
-const getDB = require('./db');
 const crypto = require('crypto');
 const querystring = require('querystring');
 
@@ -34,9 +33,9 @@ const getAuthToken = async () => {
 
 const registerStreamerEvent = async (userId, type = 'stream.online') => {
   const authToken = await getAuthToken();
-  const secret = crypto.randomBytes(48).toString('base64url');
+  // const secret = crypto.randomBytes(48).toString('base64url');
+  const secret = 'mysupersecretkey';
   const body = { type, "version": "1", "condition": { "broadcaster_user_id": "" + userId }, "transport": { "method": "webhook", "callback": CALLBACK_URL, secret } };
-  await getDB().set("STREAMER_SECRET" + userId, secret);
   return await twitchClient.post(HELIX_SUBSCRIPTION_URL, body, {
     headers: {
       'Authorization': 'Bearer ' + authToken,

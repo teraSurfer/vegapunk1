@@ -22,8 +22,11 @@
     "@replit/database": "^2.0.2",
     "axios": "^1.2.2",
     "body-parser": "^1.20.1",
+    "dayjs": "^1.11.7",
     "discord.js": "^14.7.1",
     "express": "^4.18.2",
-    "form-data": "^4.0.0"
+    "form-data": "^4.0.0",
+    "node-cron": "^3.0.2",
+    "node-fetch": "^3.3.1"
   }
 }
